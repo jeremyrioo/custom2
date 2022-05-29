@@ -1,0 +1,7 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_library_user","Access book for User Sales","model_loaning_book","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_library_admin","Access book for Admin","model_loaning_book","sales_team.group_sale_manager",1,1,1,1,
+"access_book_user","Access loan for User Sales","model_loaning_loan","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_book_admin","Access loan for Admin","model_loaning_loan","sales_team.group_sale_manager",1,1,1,1,
+"access_loan_user","Access member for User Sales","model_loaning_member","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_loan_admin","Access member for Admin","model_loaning_member","sales_team.group_sale_manager",1,1,1,1,

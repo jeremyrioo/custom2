@@ -1,0 +1,1 @@
+"id","nama",,"nodel_id:id", "group_id:id", "perm_read", "pera_write", "pern_create", "pern_unlink" "access_mahasiswa_user","Access Mahasiswa for User Sales", "model_nilai_mahasiswa", "sales team.group_sale_salesman_all_leads",1,1,1,0 "access_mahasiswa_admin", "Access Mahasisma for Adnin", "model_nilai_mahasiswa", "sales team.group_sale_manager,1,1,1,1

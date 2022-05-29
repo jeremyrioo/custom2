@@ -1,0 +1,205 @@
+
+<odoo>
+
+
+    -
+    <record model="ir.ui.view" id="khs_view_form">
+
+        <field name="name">khs.view.form</field>
+
+        <field name="model">nilai.khs</field>
+
+
+        -
+        <field name="arch" type="xml">
+
+
+            -
+            <form string="KHS Form">
+
+
+                -
+                <header>
+
+                    <!-- button confirm baru visible kalo state = draft-->
+
+
+                    <button name="action_confirmed" type="object" string="Confirm" class="btn-primary" states="draft"/>
+
+                    <button name="action_settodraft" type="object" string="Set to Draft" class="btn-primary"
+                            states="confirmed"/>
+
+                    <field name="state" statusbar_visible="draft, confirmed" widget="statusbar"/>
+
+                </header>
+
+
+                -
+                <sheet>
+
+
+                    -
+                    <group>
+
+
+                        -
+                        <group>
+
+                            <field name="name"/>
+
+                            <field name="semester"/>
+
+                            <field name="tahun"/>
+
+                        </group>
+
+
+                        -
+                        <group>
+
+                            <field name="ips"/>
+
+                        </group>
+
+                    </group>
+
+                    <!-- <notebook>-->
+
+
+                    <!-- <page string="Votes" name="votes">-->
+
+
+                    <!-- <field name="voting_ids" readonly="1">-->
+
+
+                    <!-- <tree decoration-info="vote == 'abstain'" decoration-warning= "vote == 'yes'">-->
+
+
+                    <!-- <field name="name"/>-->
+
+
+                    <!-- <field name="date"/>-->
+
+
+                    <!-- <field name="voter_id"/>-->
+
+
+                    <!-- <field name="vote"/>-->
+
+
+                    <!-- <field name="state"/>-->
+
+
+                    <!-- </tree>-->
+
+
+                    <!-- </field>-->
+
+
+                    <!-- </page>-->
+
+
+                    <!-- </notebook>-->
+
+
+                </sheet>
+
+            </form>
+
+        </field>
+
+    </record>
+
+
+    -
+    <record model="ir.ui.view" id="khs_view_list">
+
+        <field name="name">khs.view.list</field>
+
+        <field name="model">nilai.khs</field>
+
+
+        -
+        <field name="arch" type="xml">
+
+
+            -
+            <tree string="List KHS">
+
+                <field name="name"/>
+
+                <field name="semester"/>
+
+                <field name="tahun"/>
+
+                <field name="ips"/>
+
+                <field name="state"/>
+
+            </tree>
+
+        </field>
+
+    </record>
+
+
+    -
+    <record model="ir.ui.view" id="khs_view_search">
+
+        <field name="name">khs.view.search</field>
+
+        <field name="model">nilai.khs</field>
+
+
+        -
+        <field name="arch" type="xml">
+
+
+            -
+            <search>
+
+                <field name="name"/>
+
+                <field name="semester"/>
+
+                <field name="tahun"/>
+
+                <field name="status" widget="radio"/>
+
+                <filter name="draft_filter" string="Draft" domain="[('state', '=', 'draft')]"/>
+
+                <filter name="confirmed_filter" string="Confirmed" domain="[('state', '=', 'confirmed')]"/>
+
+                <separator/>
+
+
+                -
+                <group name="groupby" string="Group By..." expand="0">
+
+                    <filter name="by_state" string="State" context="{'group_by': 'state'}"/>
+
+                </group>
+
+            </search>
+
+        </field>
+
+    </record>
+
+
+    -
+    <record model="ir.actions.act_window" id="khs_action">
+
+        <field name="name">khs</field>
+
+        <field name="res_model">nilai.khs</field>
+
+        <field name="view_id" ref="khs_view_list"/>
+
+        <field name="view_mode">tree,form</field>
+
+    </record>
+
+    <menuitem id="khs_menu" name="KHS" sequence="30" action="khs_action" parent="nilai_menu"/>
+
+</odoo>
