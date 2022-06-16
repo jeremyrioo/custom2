@@ -1,0 +1,57 @@
+<odoo>
+    <record id="mobil_view_form" model="ir.ui.view">
+        <field name="name">mobil.view.form</field>
+        <field name="model">dealer.mobil</field>
+        <field name="arch" type="xml">
+            <form string="mobil form">
+                <header>
+                    <button name="action_confirmed" string="Confirm" states="draft" type="object" class="btn-primary"/>
+                    <button name="action_settodraft" string="Set to Draft" type="object" class="btn-primary"/>
+                    <button name="action_done" string="Approve" states="confirmed" type="object" class="btn-primary"/>
+                    <button name="action_canceled" string="Cancel" states="confirmed, done" type="object"
+                            class="btn-primary" groups="sales_team.group_sale_manager"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="id_mobil"/>
+                            <field name="nama_mobil"/>
+                            <field name="harga"/>
+                            <field name="warna"/>
+                            <field name="stock"/>
+                        </group>
+                        <group>
+                            <field name="state"/>
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="mobil_view_list" model="ir.ui.view">
+        <field name="name">mobil.view.form</field>
+        <field name="model">dealer.mobil</field>
+        <field name="arch" type="xml">
+            <tree string="mobil">
+                <field name="id_mobil"/>
+                <field name="nama_mobil"/>
+                <field name="harga"/>
+                <field name="warna"/>
+                <field name="stock"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="mobil_action" model="ir.actions.act_window">
+        <field name="name">mobil</field>
+        <field name="res_model">dealer.mobil</field>
+        <field name="view_id" ref="mobil_view_list"/>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+     <menuitem id="dealer_mmenu4" parent="dealer_mmenu" name="mobil"
+              action="mobil_action" sequence="10"/>
+</odoo>

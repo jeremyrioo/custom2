@@ -1,0 +1,52 @@
+<odoo>
+    <record id="pegawai_view_form" model="ir.ui.view">
+        <field name="name">pegawai.view.form</field>
+        <field name="model">dealer.pegawai</field>
+        <field name="arch" type="xml">
+            <form string="pegawai form">
+                <header>
+                    <button name="action_confirmed" string="Confirm" states="draft" type="object" class="btn-primary"/>
+                    <button name="action_settodraft" string="Set to Draft" type="object" class="btn-primary"/>
+                    <button name="action_done" string="Approve" states="confirmed" type="object" class="btn-primary"/>
+                    <button name="action_canceled" string="Cancel" states="confirmed, done" type="object"
+                            class="btn-primary" groups="sales_team.group_sale_manager"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="id_pegawai"/>
+                            <field name="nama_pegawai"/>
+                            <field name="no_hp"/>
+                        </group>
+                        <group>
+                            <field name="state"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="pegawai_view_list" model="ir.ui.view">
+        <field name="name">pegawai.view.form</field>
+        <field name="model">dealer.pegawai</field>
+        <field name="arch" type="xml">
+            <tree string="pegawai">
+                <field name="id_pegawai"/>
+                <field name="nama_pegawai"/>
+                <field name="no_hp"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="pegawai_action" model="ir.actions.act_window">
+        <field name="name">pegawai</field>
+        <field name="res_model">dealer.pegawai</field>
+        <field name="view_id" ref="pegawai_view_list"/>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <menuitem id="dealer_mmenu2" parent="dealer_mmenu" name="pegawai"
+              action="pegawai_action" sequence="10"/>
+</odoo>

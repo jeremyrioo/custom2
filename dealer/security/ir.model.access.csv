@@ -1,0 +1,15 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_customer_user","Access customer for User Sales","model_dealer_customer","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_customer_admin","Access customer for Admin","model_dealer_customer","sales_team.group_sale_manager",1,1,1,1,
+"access_pegawai_user","Access pegawai for User Sales","model_dealer_pegawai","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_pegawai_admin","Access pegawai for Admin","model_dealer_pegawai","sales_team.group_sale_manager",1,1,1,1,
+"access_mobil_user","Access mobil for User Sales","model_dealer_mobil","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_mobil_admin","Access mobil for Admin","model_dealer_mobil","sales_team.group_sale_manager",1,1,1,1,
+"access_transaksi_user","Access transaksi for User Sales","model_dealer_transaksi","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_transaksi_admin","Access transaksi for Admin","model_dealer_transaksi","sales_team.group_sale_manager",1,1,1,1,
+"access_detailtransaksi_user","Access detailtransaksi for User Sales","model_dealer_detailtransaksi","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_detailtransaksi_admin","Access detailtransaksi for Admin","model_dealer_detailtransaksi","sales_team.group_sale_manager",1,1,1,1,
+"access_pabrik_user","Access pabrik for User Sales","model_dealer_pabrik","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_pabrik_admin","Access pabrik for Admin","model_dealer_pabrik","sales_team.group_sale_manager",1,1,1,1,
+"access_beli_user","Access beli for User Sales","model_dealer_beli","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_beli_admin","Access beli for Admin","model_dealer_beli","sales_team.group_sale_manager",1,1,1,1,

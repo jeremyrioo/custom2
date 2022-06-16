@@ -1,0 +1,58 @@
+<odoo>
+    <record id="beli_view_form" model="ir.ui.view">
+        <field name="name">beli.view.form</field>
+        <field name="model">dealer.beli</field>
+        <field name="arch" type="xml">
+            <form string="beli form">
+                <header>
+                    <button name="action_confirmed" string="Confirm" states="draft" type="object" class="btn-primary"/>
+                    <button name="action_settodraft" string="Set to Draft" type="object" class="btn-primary"/>
+                    <button name="action_done" string="Approve" states="confirmed" type="object" class="btn-primary"/>
+                    <button name="action_canceled" string="Cancel" states="confirmed, done" type="object"
+                            class="btn-primary" groups="sales_team.group_sale_manager"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="id_beli"/>
+                            <field name="mobi2_id"/>
+                            <field name="pega2_id"/>
+                            <field name="pab_id"/>
+                            <field name="jumlah_barang"/>
+                            <field name="tanggal_pembelian"/>
+                        </group>
+                        <group>
+                            <field name="state"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="beli_view_list" model="ir.ui.view">
+        <field name="name">beli.view.form</field>
+        <field name="model">dealer.beli</field>
+        <field name="arch" type="xml">
+            <tree string="beli">
+                <field name="id_beli"/>
+                <field name="mobi2_id"/>
+                <field name="pega2_id"/>
+                <field name="pab_id"/>
+                <field name="jumlah_barang"/>
+                <field name="tanggal_pembelian"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="beli_action" model="ir.actions.act_window">
+        <field name="name">beli</field>
+        <field name="res_model">dealer.beli</field>
+        <field name="view_id" ref="beli_view_list"/>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <menuitem id="dealer_mmenu7" parent="dealer_mmenu" name="beli"
+              action="beli_action" sequence="10"/>
+</odoo>

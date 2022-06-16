@@ -1,0 +1,52 @@
+<odoo>
+    <record id="customer_view_form" model="ir.ui.view">
+        <field name="name">customer.view.form</field>
+        <field name="model">dealer.customer</field>
+        <field name="arch" type="xml">
+            <form string="customer form">
+                <header>
+                    <button name="action_confirmed" string="Confirm" states="draft" type="object" class="btn-primary"/>
+                    <button name="action_settodraft" string="Set to Draft" type="object" class="btn-primary"/>
+                    <button name="action_done" string="Approve" states="confirmed" type="object" class="btn-primary"/>
+                    <button name="action_canceled" string="Cancel" states="confirmed, done" type="object"
+                            class="btn-primary" groups="sales_team.group_sale_manager"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="id_customer"/>
+                            <field name="nama_customer"/>
+                        </group>
+                        <group>
+                            <field name="state"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="customer_view_list" model="ir.ui.view">
+        <field name="name">customer.view.form</field>
+        <field name="model">dealer.customer</field>
+        <field name="arch" type="xml">
+            <tree string="Customer">
+                <field name="id_customer"/>
+                <field name="nama_customer"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="customer_action" model="ir.actions.act_window">
+        <field name="name">customer</field>
+        <field name="res_model">dealer.customer</field>
+        <field name="view_id" ref="customer_view_list"/>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <menuitem id="dealer_mmenu" parent="idea.exercise_menu" name="dealer"
+              action="customer_action" sequence="10"/>
+    <menuitem id="dealer_mmenu1" parent="dealer_mmenu" name="customer"
+              action="customer_action" sequence="10"/>
+</odoo>
